@@ -1,0 +1,18 @@
+package com.hrms.TestScripts;
+
+import com.hrms.lib.General;
+
+public class TC004_DeleteEmployee {
+
+	public static void main(String[] args) {
+		General gen=new General();
+		gen.openApplication();
+		gen.LoginApp();
+		gen.DeleteEmp();
+		gen.LogoutApp();
+		gen.closeApp();
+
+	}
+	
+
+}

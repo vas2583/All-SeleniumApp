@@ -1,0 +1,15 @@
+
+public class TernaryOperator {
+
+	public static void main(String[] args) {
+	  int num=23;
+	  int half=num/2;
+	  for(int i=1;i<=half;i++) {
+		  if((half%i)==0) {
+			  System.out.println(i);
+		  }
+	  }
+	  
+	}
+
+}

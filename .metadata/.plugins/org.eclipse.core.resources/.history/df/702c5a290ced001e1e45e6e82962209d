@@ -1,0 +1,39 @@
+package com.nt.testng;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.Reporter;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+public class TC5_MultipleBrowserOpening {
+  WebDriver driver;
+   @Test
+   public void ff()throws Exception {
+	   driver.navigate().to("http://183.82.103.245/nareshit/login.php");
+	   Reporter.log("IE BROWSER IS EXECUTED");
+	   Thread.sleep(3000);
+   }
+     @Parameters({"browser"})
+    @BeforeMethod
+   public void setUp(String browser) {
+	   if(browser.equals("Firefox")){
+		   driver=new FirefoxDriver();
+	   }
+	   else if(browser.equals("Chrome")) {
+		   driver=new ChromeDriver();
+	   }
+	   else if(browser.equals("IE")) {
+		   driver=new InternetExplorerDriver();}
+		   
+	   }
+     @AfterMethod
+   public void tearup() {
+	   driver.quit();
+	   
+   }
+}

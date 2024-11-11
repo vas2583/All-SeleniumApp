@@ -1,0 +1,22 @@
+package com.nit.dp;
+
+import org.testng.IRetryAnalyzer;
+import org.testng.ITestResult;
+
+public class RetryAnalyzer implements IRetryAnalyzer{
+
+	public boolean retry(ITestResult result) {
+		int count=0;
+		int howmanyTimes=3;
+		  for(int i=0;i<howmanyTimes;i++) {
+		    if(count<howmanyTimes) {
+		    	System.out.println("rerun::"+count);
+			   count++;
+			return true;	
+		   }
+		    
+		}
+		return false;
+	}
+
+}

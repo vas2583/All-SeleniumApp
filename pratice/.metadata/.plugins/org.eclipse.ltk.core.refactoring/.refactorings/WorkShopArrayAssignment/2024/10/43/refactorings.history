@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;SimpePattern1.java&apos; to &apos;WorkShopArrayAssignment/src/com.nit.pattern&apos;&#x0D;&#x0A;- Original project: &apos;WorkShopArrayAssignment&apos;&#x0D;&#x0A;- Destination element: &apos;WorkShopArrayAssignment/src/com.nit.pattern&apos;&#x0D;&#x0A;- Original element: &apos;com.nit.controlstructure.SimpePattern1.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;com.nit.pattern" element1="/src&lt;com.nit.controlstructure{SimpePattern1.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1729570655215" units="1" version="1.0"/>
+</session>

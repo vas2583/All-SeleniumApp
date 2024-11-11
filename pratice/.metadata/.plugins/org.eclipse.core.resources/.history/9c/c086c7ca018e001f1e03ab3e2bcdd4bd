@@ -1,0 +1,79 @@
+package com.nit.dp;
+
+import java.time.Duration;
+import java.util.NoSuchElementException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class Dpproject {
+	
+	
+	
+	  @Test(dataProvider="input")
+	  public void dp(String username,String password) throws Exception {
+		  WebDriver driver=new ChromeDriver();
+	  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	  driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+	  Thread.sleep(3000); 
+	  WebElement un=driver.findElement(By.name("username"));
+	  WebElement pas=driver.findElement(By.name("password")); 
+	  WebElement log=driver.findElement(By.xpath("//button[@type='submit']"));
+	  un.sendKeys(username); 
+	  pas.sendKeys(password); 
+	  FluentWait<WebDriver> wait=new FluentWait<WebDriver>(driver) 
+		.withTimeout(Duration.ofSeconds(10))
+	  .pollingEvery(Duration.ofSeconds(10))
+	  .ignoring(NoSuchElementException.class);
+	  wait.until(ExpectedConditions.elementToBeClickable(log)); 
+	  log.click(); 
+	 // Assert.assertEquals(un.getText(),Admin); 
+	  if(un.equals("Admin") && pas.equals("admin123")) {
+		  System.out.println("ValidCredentials Test Witll Passed and Displayed DashBoard");
+		  }
+	  }
+	  
+	  
+	  @DataProvider(name="input") 
+	  public Object[][] dataProvider() { 
+		  Object[][] data= {{"Admin","admin123"},
+				            {"admin","admin"},
+				            {"adm","adm12"}
+	                         };
+		  return data;
+	  
+	  }
+	 
+      
+      
+      //@Test
+		
+	  @Test(retryAnalyzer=RetryAnalyzer.class)
+      public static  void retryAnalyzer() {
+    	  WebDriver driver=new ChromeDriver();
+		  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		 driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		 WebElement un=driver.findElement(By.name("username"));
+		    WebElement pas=driver.findElement(By.name("password"));
+		    WebElement log=driver.findElement(By.xpath("//button[@type='submit']"));
+		    
+		     un.sendKeys("Admin");
+		     pas.sendKeys("admin123");
+		     
+		     FluentWait<WebDriver> wait=new FluentWait<WebDriver>(driver)
+			   .withTimeout(Duration.ofSeconds(10))
+			   .pollingEvery(Duration.ofSeconds(10))
+			   .ignoring(NoSuchElementException.class);
+              wait.until(ExpectedConditions.elementToBeClickable(log));
+		     log.click();
+		    Assert.assertFalse(true);
+		    
+      }
+}

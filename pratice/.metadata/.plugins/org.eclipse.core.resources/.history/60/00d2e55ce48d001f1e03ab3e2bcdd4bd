@@ -1,0 +1,38 @@
+package com.nit.dp;
+
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class Dpproject {
+	
+	@Test(dataProvider="input")
+	public void dp(String username,String password) {
+		WebDriver driver=new ChromeDriver();
+		  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		 driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		 WebElement un=driver.findElement(By.name("username"));
+		    WebElement pas=driver.findElement(By.name("password"));
+		    WebElement log=driver.findElement(By.xpath("//button[@type='submit']"));
+		     un.sendKeys(username);
+		     pas.sendKeys(password);
+		     log.click();
+		     
+	}
+      @DataProvider(name="input")
+	public Object[][] dataProvider() {
+    	  Object[][] data= {{"Admin","admin123"},
+    	                     {"admin","admin"},
+    	                      {"adm","adm12"}
+    			            
+    	                                   };
+    	  return data;
+		
+	}
+}

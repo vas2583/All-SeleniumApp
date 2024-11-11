@@ -1,0 +1,16 @@
+
+public class TernaryOperator {
+
+	public static void main(String[] args) {
+	  int num=15000;
+	  int half=num/2;
+	  
+	  for(int i=1;i<=half;i++) {
+		  if((num%i)==0) {
+			  
+		  }
+	  }
+	  
+	}
+
+}

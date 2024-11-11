@@ -1,0 +1,10 @@
+package gitProj01;
+
+public class gitcl {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

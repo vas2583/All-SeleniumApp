@@ -1,0 +1,58 @@
+package com.saddle.dd;
+
+import java.io.FileInputStream;
+import java.time.Duration;
+
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class SaddlePointLogin {
+
+	public static void main(String[] args)throws Exception {
+		  FileInputStream fis=new FileInputStream("G:\\WorkSpeace\\seleniunm\\suresh715\\pratice\\SaddelPointProjectN\\usercre.xlsx");
+		  XSSFWorkbook wb=new XSSFWorkbook(fis);
+		  XSSFSheet sheet=wb.getSheet("Sheet1");
+		  XSSFRow row;
+		  XSSFCell cell;
+		row=sheet.getRow(1);
+		 cell=row.getCell(0);
+		  String url=cell.getStringCellValue();
+		  System.out.println(url);
+		  cell=row.getCell(1);
+		 String username=cell.getStringCellValue();
+		  cell=row.getCell(2);
+		  String password=cell.getStringCellValue();
+			
+			  WebDriver driver=new ChromeDriver(); driver.manage().window().maximize();
+			  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+			 //Lanuch url
+			  driver.get(url);
+			  //Find UserNAME elememt
+			  WebElement un=driver.findElement(By.id("first_field"));
+			  WebElement pass=driver.findElement(By.id("second_field"));
+			  un.sendKeys(username);
+			  pass.sendKeys(password);
+			 WebElement log=driver.findElement(By.xpath("//button[@type='submit']"));
+			 log.click(); 
+			 System.out.println("login SuccessFull");
+			 WebElement mod=driver.findElement(By.xpath("//span[@id='oL8Dx-cnt']"));
+			  mod.click();
+			  WebElement dimand=driver.findElement(By.xpath("//button[@type='button' and @id='oL8Do']"));
+			  dimand.click();
+			  WebElement menu=driver.findElement(By.xpath("//a[@role='menuitem' and @id='cG3Dj8-a']"));
+			  Actions a=new Actions(driver);
+			  a.moveToElement(menu);
+			  
+			  
+	}
+		  }
+	
+
+

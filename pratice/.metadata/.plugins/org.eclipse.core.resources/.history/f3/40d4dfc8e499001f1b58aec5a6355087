@@ -1,0 +1,67 @@
+package com.nt.methods;
+
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FileUploadWithOutSendkeys {
+
+    public static void main(String[] args) throws Exception {
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.get("https://testautomationpractice.blogspot.com/");
+
+        // Find the file upload element
+        WebElement ele = driver.findElement(By.id("singleFileInput"));
+
+        // Using JavaScript to click the file upload field
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", ele);
+        System.out.println("Clicked on File Input text box");
+
+        // Pause to ensure file dialog appears
+        Thread.sleep(10000);
+
+        // Set file path to clipboard
+        StringSelection selection = new StringSelection("C:\\Users\\vasuk\\OneDrive\\Documents\\InterviewDocs\\Vasu_QA1.pdf");
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
+        System.out.println("Copied file path to clipboard");
+
+        // Pause to ensure clipboard is ready
+        Thread.sleep(2000);
+
+        // Use Robot class to paste file path and press Enter
+        Robot r = new Robot();
+        r.keyPress(KeyEvent.VK_CONTROL);
+        r.keyPress(KeyEvent.VK_V);
+        r.keyRelease(KeyEvent.VK_V);
+        r.keyRelease(KeyEvent.VK_CONTROL);
+        
+        // Pause before pressing Enter to allow paste action
+        Thread.sleep(1000);
+
+        r.keyPress(KeyEvent.VK_ENTER);
+        r.keyRelease(KeyEvent.VK_ENTER);
+
+        System.out.println("File path pasted and Enter pressed");
+
+        // Optional: Wait to ensure file uploads before clicking submit
+        Thread.sleep(5000);
+
+        // Click submit (if needed in the form)
+        driver.findElement(By.xpath("(//button[@type='submit'])[1]")).click();
+        System.out.println("Upload successful");
+
+        // Close the driver
+        //driver.quit();
+    }
+}

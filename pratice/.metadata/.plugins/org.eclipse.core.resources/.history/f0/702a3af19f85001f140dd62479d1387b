@@ -1,0 +1,10 @@
+package com.nit.interviewprgms;
+
+public class RemoveJunkSpeaceInString {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

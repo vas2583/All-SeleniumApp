@@ -1,0 +1,5 @@
+log4j.rootLogger=DEBUG,R
+log4j.appender.R=org.apache.log4j.FileAppender
+log4j.appender.R.File=index.html
+log4j.appender.R.append=true
+log4j.appender.R.Layout=org.apache.log4j.html.HTMLLayout

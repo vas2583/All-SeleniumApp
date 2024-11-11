@@ -1,0 +1,38 @@
+package com.hrms.TestScripts;
+
+import java.io.File;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.hrms.lib.General;
+
+public class TC004_DeleteEmployee {
+
+	public static void main(String[] args)throws Exception {
+	
+		General gen=new General();
+		gen.openApplication();
+		gen.waitStatement();
+		
+		gen.LoginApp();
+		gen.waitStatement();
+		
+		gen.enetreEmpDetailsFrame();
+		gen.addEmployee();
+		gen.waitStatement();
+		gen.editEmployee();
+		gen.exitEmpDetailsFrame();
+		gen.LogoutApp();
+		gen.closeApp();
+
+	
+		
+	
+
+   }
+}
+	

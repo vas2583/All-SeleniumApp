@@ -1,0 +1,25 @@
+package com.hrms.TestScripts;
+
+import com.hrms.lib.General;
+
+public class TCOO2_AddEmployee {
+
+	  @Test
+	public void addEmp()throws Exception {
+		General gen=new General();
+		gen.openApplication();
+		gen.waitStatement();
+		gen.LoginApp();
+		gen.waitStatement();
+		gen.enetreEmpDetailsFrame();
+		gen.waitStatement();
+		gen.addEmployee();
+		gen.waitStatement();
+		gen.exitEmpDetailsFrame();
+		gen.waitStatement();
+		gen.LogoutApp();
+		gen.waitStatement();
+		gen.closeApp();
+	}
+
+}

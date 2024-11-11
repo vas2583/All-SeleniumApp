@@ -1,0 +1,21 @@
+package com.nt.methods;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FoundElementInScrollPage {
+
+	public static void main(String[] args) {
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.booksbykilo.in/new-books");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		String searchBook=driver.findElement(By.xpath("//h3[text()='Newton and the Big Mess']")).getText();
+		List<WebElement>li=driver.findElements(By.xpath("//div[@id='productsDiv']//h3"));
+	     System.out.println(li.size());
+	}
+
+}

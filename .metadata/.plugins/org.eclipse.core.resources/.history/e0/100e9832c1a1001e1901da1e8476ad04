@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <classes>
+   <class name="com.hrms.TestScripts.TC001_Login_Logout"></class>
+   <class name="com.hrms.TestScripts.Tc002_AddEmployee"></class>
+   
+ </classes>

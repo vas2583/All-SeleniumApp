@@ -1,0 +1,76 @@
+package com.nt.JavaScriptExcecutor;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class ActionMethods {
+
+	public static void main(String[] args)throws Exception {
+		/*
+		 * WebDriver driver=new ChromeDriver();
+		 * driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		 * driver.get(
+		 * "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		 * driver.manage().window().maximize();
+		 */
+		/*
+		 * driver.findElement(By.xpath("//input[@placeholder='Username']")).sendKeys(
+		 * "Admin");
+		 * driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys(
+		 * "admin123");
+		 * driver.findElement(By.xpath("//button[@type='submit']")).click();
+		 * System.out.println("login SUccessFull");
+		 */
+		//USINMG JAVAScript Exceutor
+		 WebDriver driver = new ChromeDriver();
+	        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+	        driver.manage().window().maximize();
+
+	        WebElement ele1 = null;
+	        WebElement ele2 = null;
+	        WebElement ele3 = null;
+
+	        // Retry loop to find elements
+	        for (int i = 0; i < 5; i++) {
+	            try {
+	                // Wait until elements are visible
+	                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	                ele1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@placeholder='Username']")));
+	                ele2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@placeholder='Password']")));
+	                ele3 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']")));
+	                break; // Break loop if elements are found
+	            } catch (Exception e) {
+	                Thread.sleep(2000); // Wait and retry
+	            }
+	        }
+
+	        // Check if all elements were found
+	        if (ele1 != null && ele2 != null && ele3 != null) {
+	            JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+	            // Set values and click button using JavaScript
+	            jse.executeScript("arguments[0].value = 'Admin';", ele1);
+	            jse.executeScript("arguments[0].value = 'admin123';", ele2);
+	            jse.executeScript("arguments[0].click();", ele3);
+
+	            System.out.println("Login Successful");
+	        } else {
+	            System.out.println("Element(s) not found");
+	        }
+		 
+		// Click the submit button
+//System.out.println("login is successFull");
+	 
+		
+
+	}
+
+}

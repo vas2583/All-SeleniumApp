@@ -1,0 +1,27 @@
+INFO -  ur navigation is SuccessFull
+INFO - Title is Matches
+INFO - userName::nareshit
+INFO - password::nareshit
+INFO - Login SuccessFill
+INFO - Application logout
+INFO - it closes current window
+INFO -  ur navigation is SuccessFull
+WARN - Title is not match
+INFO - The current title is::OrangeHRM - New Level of HR Management
+INFO - userName::nareshit
+INFO - password::nareshit
+INFO - Login SuccessFill
+WARN - Title is not match
+INFO - The current title is::OrangeHRM
+INFO - Cursor is moving to PIM module
+DEBUG - we are enetrd into the frame
+INFO - last Name is Entered
+INFO - firstName is Entered
+INFO - middle name is entered
+INFO - Nick name entered
+INFO - photo enetred
+INFO - Add employee is completed
+DEBUG - We are abck to home page
+DEBUG - we exit from frame
+INFO - Application logout
+INFO - it closes current window

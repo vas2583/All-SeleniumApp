@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.nt.auto_pra.MouseOver&apos; to &apos;TC003_MouseOver_AddEmployee&apos;&#x0D;&#x0A;- Original project: &apos;Selenium_javaPrograms&apos;&#x0D;&#x0A;- Original element: &apos;com.nt.auto_pra.MouseOver&apos;&#x0D;&#x0A;- Renamed element: &apos;com.nt.auto_pra.TC003_MouseOver_AddEmployee&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;MouseOver&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.nt.auto_pra{MouseOver.java[MouseOver" matchStrategy="1" name="TC003_MouseOver_AddEmployee" qualified="false" references="true" similarDeclarations="false" stamp="1707110007262" textual="false" version="1.0"/>
+</session>

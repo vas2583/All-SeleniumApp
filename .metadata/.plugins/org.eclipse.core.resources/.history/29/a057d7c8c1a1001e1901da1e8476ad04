@@ -1,0 +1,10 @@
+<suite name="Hrms" version="1">
+   <test name="recurssionTest">
+   
+ <classes>
+   <class name="com.hrms.TestScripts.TC001_Login_Logout"></class>
+   <class name="com.hrms.TestScripts.TC002_AddEmployee"></class>
+   
+ </classes>
+   </test>
+ </suite>

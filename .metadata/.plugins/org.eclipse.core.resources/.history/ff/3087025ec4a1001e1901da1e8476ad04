@@ -1,0 +1,27 @@
+package com.hrms.TestScripts;
+
+import org.testng.Reporter;
+import org.testng.annotations.Test;
+
+import com.hrms.lib.General;
+
+public class TC001_Login_Logout {
+	@Test
+	public void tc001()throws Exception{
+	General gen=new General();
+	 gen.openApplication();
+	 Reporter.log("OpenApplication::")
+	 gen.waitStatement();
+	 
+	 gen.LoginApp();
+	 Reporter.log("Login success::");
+	 gen.waitStatement();
+	
+	 gen.LogoutApp();
+	 Reporter.log("Logout is success::");
+	 gen.waitStatement();
+	 gen.closeApp();
+	 Reporter.log("Close the Application::");
+	} 
+
+}

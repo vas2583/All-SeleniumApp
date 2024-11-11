@@ -1,0 +1,47 @@
+//Write a Program to take an input of List of Strings and returns a list of unique strings.
+//Input = {“Hyderabad”, “Telangana”, “India”, “Hyderabad”,“Mumbai”, “Pune”}
+//Ouput = {Telangana, India, Mumbai, Pune}
+
+package com.nit.interviewprgms;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class PrintUniqueStringsInlList {
+	public static void unique() {
+		List<String> str=List.of("Hyderabad","Telangana","India","Hyderabad","Mumbai","Pune");
+		Set<Object> o=new HashSet<Object>();
+		
+		Object[] o1=str.toArray();
+	   for(int i=0;i<o1.length;i++) {
+		 for(int j=i+1;j<o1.length-1;j++) {
+			 if(o1[i].equals(o1[j])) {
+				 continue;
+			 }
+			 else {
+				 
+			 }
+		 }
+	   }
+	}
+
+	public static void main(String[] args) {
+		List<String>str=List.of("Hyderabad","Telangana","India","Hyderabad","Mumbai","Pune");
+		Set<String>s=new HashSet(str);
+		List<String> li=new ArrayList<>(s);
+		for(String s1:li)
+			System.out.print(s1+" ");
+		
+	    		 }
+	    	
+	    		 
+	    	 
+			
+		
+		
+
+	}
+
+

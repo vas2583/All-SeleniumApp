@@ -1,0 +1,64 @@
+package com.test.hrms;
+
+
+import java.io.FileInputStream;
+import java.util.Properties;
+
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import com.nit.commonMethods.CommonMethods;
+import com.nit.pages.DashBoardPage;
+import com.nit.pages.LoginPage;
+import com.nit.utils.Utility;
+
+public class LoginTest {
+	public static String url;
+	public static String usn;
+	public static String pass;
+	@BeforeClass(groups={"sanity","Regeression","master"})
+	public void props() {
+		try {
+			FileInputStream fis=new FileInputStream("G:\\WorkSpeace\\seleniunm\\suresh715\\pratice\\HybridFrameWork\\src\\main\\resources\\config\\global.properties");
+			Properties p=new Properties();
+			p.load(fis);
+			url=p.getProperty("url");
+			usn=p.getProperty("username");
+			pass=p.getProperty("password");
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	 @BeforeMethod(groups={"sanity","Regeression","master"})
+	 @Parameters("browser")
+	public void seatUp(String browser) {
+		Utility.openBrowser(browser);
+		Utility.navgateToURl(url);
+	 }
+	@Test(groups={"sanity","master"})
+	public  void login() throws Exception{
+		LoginPage login=new LoginPage();
+		DashBoardPage dash=new DashBoardPage();
+	  
+		login.verifyTheLogo();
+		login.loginFunctionality(usn,pass);
+		dash.verify_textDispalyed();
+	 }
+	@AfterMethod(groups={"sanity","Regeression","master"})
+	public void logout() throws Exception {
+		CommonMethods cm=new CommonMethods();
+		cm.logout();	
+	  }
+	@AfterClass(groups={"sanity","Regeression","master"})
+	public void tearUp() {
+		Utility.closeCurrentBrowser();
+	}
+	
+    
+}

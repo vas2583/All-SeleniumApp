@@ -1,0 +1,38 @@
+package com.nt.methods;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WindowType;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
+
+public class SeleniumMethodsRt {
+
+	public static void main(String[] args) {
+		//WebDriverManager manager=new ChromeDriverManager();
+	        //  manager.chromedriver().setup();
+		WebDriver driver=new ChromeDriver();
+		//get Methods And Rts
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		String url=driver.getCurrentUrl();
+		String title=driver.getTitle();
+		String pageSource=driver.getPageSource();
+		Object obj=driver.getClass();
+		System.out.println(obj);
+		//open New Window
+		driver.switchTo().newWindow(WindowType.TAB);
+		 //navigateMethods And Rt
+		driver.navigate().to("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		driver.navigate().back();
+		driver.navigate().forward();
+		driver.navigate().refresh();
+		
+		//window Handles
+		  //geting Current Window value
+		String winVal=driver.getWindowHandle();
+		System.out.println(WinVal);
+     
+	}
+
+}

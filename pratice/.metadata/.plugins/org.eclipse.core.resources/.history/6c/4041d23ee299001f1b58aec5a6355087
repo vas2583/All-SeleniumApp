@@ -1,0 +1,52 @@
+package com.nt.methods;
+
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FileUploadWithOutSendkeys {
+
+	public static void main(String[] args)throws Exception {
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://testautomationpractice.blogspot.com/");
+		WebElement ele=driver.findElement(By.id("singleFileInput"));
+		
+		//Using SendKeys
+		   //ele.sendKeys("C:\\Users\\vasuk\\OneDrive\\Documents\\InterviewDocs\\Vasu_QA1.pdf");
+		   //driver.findElement(By.xpath("(//button[@type='submit'])[1]")).click();
+		
+	   //Using JavaScript
+		//JavascriptExecutor js=(JavascriptExecutor)driver;
+		//js.executeScript("arguments[0].value='C:\\Users\\vasuk\\OneDrive\\Documents\\InterviewDocs\\Vasu_QA1.pdf';",ele);
+		
+		//using Robot Calss
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("arguments[0].click();",ele);
+		System.out.println("Click on File Input text box");
+		Thread.sleep(10000);
+		 StringSelection selection=new StringSelection("C:\\Users\\vasuk\\OneDrive\\Documents\\InterviewDocs\\Vasu_QA1.pdf");
+		 Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection,null);
+		  Thread.sleep(3000);
+		 Robot r=new Robot();
+		 r.keyPress(KeyEvent.VK_CONTROL);
+		 r.keyPress(KeyEvent.VK_V);
+		r.keyRelease(KeyEvent.VK_V);
+		r.keyRelease(KeyEvent.VK_CONTROL);
+		
+		 r.keyPress(KeyEvent.VK_ENTER);
+		  r.keyRelease(KeyEvent.VK_ENTER);
+		 
+		 
+		driver.findElement(By.xpath("(//button[@type='submit'])[1]")).click();
+		System.out.println("upload sucessfull");
+
+	}
+
+}

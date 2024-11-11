@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.nt.fluentWait.FluentWait.java&apos; to &apos;FluentWait_Selenium.java&apos;&#x0D;&#x0A;- Original project: &apos;OrangeHrmAutomation&apos;&#x0D;&#x0A;- Original element: &apos;com.nt.fluentWait.FluentWait.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.nt.fluentWait.FluentWait_Selenium.java&apos;" description="Rename compilation unit &apos;FluentWait.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;com.nt.fluentWait{FluentWait.java" name="FluentWait_Selenium.java" references="false" stamp="1722840086186" version="1.0"/>
+</session>

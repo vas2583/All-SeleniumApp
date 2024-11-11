@@ -1,0 +1,27 @@
+package com.nit.dp;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class AmazonDiffSearchElements {
+	public void search(String item) {
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.navigate().to("https://www.amazon.in/");
+		WebElement search=driver.findElement(By.id("twotabsearchtextbox"));
+		search.sendKeys(item);
+		search.sendKeys(Keys.ENTER);
+		driver.navigate().back();
+		search.clear();
+		
+		
+		
+	}
+
+}

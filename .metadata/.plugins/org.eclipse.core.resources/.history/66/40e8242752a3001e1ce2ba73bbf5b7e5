@@ -1,0 +1,94 @@
+package com.hrms.lib;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class General extends Global {
+	 //Open Application
+	public void openApplication() {
+	 driver=new ChromeDriver();
+	driver.navigate().to(url);
+	System.out.println("Application is Open");
+	}
+	//LoginThe Applicaton
+	 public void LoginApp() {
+		driver.findElement(By.name(txt_loginName)).sendKeys(login_UserName);
+		driver.findElement(By.name(txt_loginPassword)).sendKeys(login_Password);
+		driver.findElement(By.name(btn_login)).click();
+		System.out.println("Login is Sucessfull");	
+	 }
+	 public void enetreEmpDetailsFrame() {
+		 driver.switchTo().frame(emp_details_fame);
+		 System.out.println("enetred into Frame");
+	 }
+	 public void addEmployee() {
+		 driver.findElement(By.xpath(btn_add)).click();
+		 System.out.println("Add button is clicked::");
+		 driver.findElement(By.name(txt_addEmpFirstName)).sendKeys(addEmp_FirstName);
+		 driver.findElement(By.name(txt_addEmpLastName)).sendKeys(addEmp_LastName);
+		 driver.findElement(By.id(btn_save)).click();
+		 System.out.println("Add employee is finshed");
+	 }	 
+	 public void exitEmpDetailsFrame() {
+		 driver.switchTo().defaultContent();
+		 System.out.println("exit from frame::");
+	 }
+	 
+	 public void LogoutApp() {
+		 driver.findElement(By.linkText(link_logout)).click();
+		 System.out.println("Application will be Logout");
+	 }
+	 
+	 public void closeApp() {
+		 driver.close();
+		 System.out.println("Application is Close");
+		  
+	 }
+	 public void waitStatement()throws Exception {
+		 Thread.sleep(3000);
+		 System.out.println("Wait statement is executed in 2000 ms");
+		 }
+	 public void DeleteEmp() {
+		 Select s=new Select(driver.findElement(By.name(txt_search)));
+		 s.selectByVisibleText("EMP. ID");
+		 System.out.println("DropDrow is Select::");
+		 
+		 driver.findElement(By.id(txt_serach_select)).sendKeys(searchValue);
+		 System.out.println("enter  the Employee id::");
+		 
+		 driver.findElement(By.xpath(btn_search)).click();
+		 
+		 driver.findElement(By.name(check_select)).click();
+		 System.out.println("click on checkbox:: ");
+		 driver.findElement(By.xpath(btn_delete)).click();
+		 System.out.println("cilck on delete button::");
+	 }
+			/*
+			 * public void editEmployee() throws Exception {
+			 * driver.findElement(By.xpath(btn_edit)).click();
+			 * System.out.println("Editbutton is cLICKED");
+			 * driver.findElement(By.xpath(btn_reset)).click();
+			 * System.out.println("RESET BUTTON IS CLICKED::"); waitStatement();
+			 * 
+			 * ac=new Actions(driver);
+			 * ac.moveToElement(driver.findElement(By.name("txtEmpFirstName"))).perform();
+			 * r=new Robot(); r.keyPress(KeyEvent.VK_BACK_SPACE);
+			 * txtUpdateEmployeeId.get(5).sendKeys(Keys.CONTROL + "a" + Keys.BACK_SPACE);
+			 * waitStatement(); System.out.println("Remove the firstname::");
+			 * ac.(driver.findElement(By.name("txtEmpFirstName")).sendKeys("anjana")).
+			 * perform(); waitStatement();
+			 * 
+			 * //driver.findElement(By.name("txtEmpMiddleName")).sendKeys("anju");
+			 * //System.out.println("Middle name is enetr::"); //
+			 * driver.findElement(By.name(txt_nickName)).sendKeys(nick_name);
+			 * //System.out.println("Middle nick name is enetr::"); waitStatement();
+			 * driver.findElement(By.xpath(btn_edit_save)).click();
+			 * driver.findElement(By.xpath(btn_back)).click(); } public void screenShot()
+			 * throws IOException { File
+			 * f1=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			 * FileUtils.copyFile(f1, new File("G:\\screenshot\\hrms2.png"));
+			 * 
+			 * }
+			 */
+}

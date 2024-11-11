@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-09-26T07:00:37Z" name="Default suite" finished-at="2024-09-26T07:02:01Z" duration-ms="84516">
+    <groups>
+    </groups>
+    <test started-at="2024-09-26T07:00:37Z" name="Default test" finished-at="2024-09-26T07:02:01Z" duration-ms="84516">
+      <class name="com.nit.links.ParaBankLinks">
+        <test-method signature="links()[pri:0, instance:com.nit.links.ParaBankLinks@4082ba93]" started-at="2024-09-26T07:00:37Z" name="links" finished-at="2024-09-26T07:02:01Z" duration-ms="84319" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- links -->
+      </class> <!-- com.nit.links.ParaBankLinks -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

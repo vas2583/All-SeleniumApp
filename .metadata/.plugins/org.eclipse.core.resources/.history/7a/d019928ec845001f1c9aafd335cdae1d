@@ -1,0 +1,20 @@
+package com.nt.windowhandels;
+
+import java.io.FileInputStream;
+
+import jxl.Sheet;
+import jxl.Workbook;
+
+public class WorkingOnExcel {
+
+	public static void main(String[] args) throws Exception {
+		FileInputStream is=new FileInputStream("G:\\EmpDetails.xls");
+		Workbook wb=Workbook.getWorkbook(is);
+		Sheet s1=wb.getSheet(0);
+		String names=s1.getCell(3,1).getContents();
+		
+		
+
+	}
+
+}

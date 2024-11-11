@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="HRMSSuite">
+ <test name="MYTestGRoup">
+  <classes>
+    <class name="com.nt.scripts.LoginFunction"/>
+    <class name="com.nt.scripts.AddEmployee"/>
+    <class name="com.nt.scripts.SearchEmployee"/>
+    <class name="com.nt.scripts.DeleteEmployee"/>
+  </classes>
+ </test>
+</suite>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.nit.interviewprgms.ReverseArray&apos; to &apos;SortingArray&apos;&#x0D;&#x0A;- Original project: &apos;WorkShopArrayAssignment&apos;&#x0D;&#x0A;- Original element: &apos;com.nit.interviewprgms.ReverseArray&apos;&#x0D;&#x0A;- Renamed element: &apos;com.nit.interviewprgms.SortingArray&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;ReverseArray&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.nit.interviewprgms{ReverseArray.java[ReverseArray" matchStrategy="1" name="SortingArray" qualified="false" references="true" similarDeclarations="false" stamp="1728409813563" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,16 @@
+package com.nit.dp;
+
+import org.testng.annotations.DataProvider;
+
+public class Dpproject {
+      @DataProvider(name="input")
+	public Object[][] dataProvider() {
+    	  Object[][] data= {{"Admin","admin123"},
+    	  {"admin","admin"},
+    	  {"adm","adm12"}
+    			            
+    	        };
+    	  return data;
+		
+	}
+}

@@ -1,0 +1,160 @@
+package com.nt.methods;
+
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SeleniumMethodsRt {
+
+	public static void main(String[] args) {
+		//WebDriverManager manager=new ChromeDriverManager();
+	        //  manager.chromedriver().setup();
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		//implicitlyWait
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//get Methods And Rts
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		String url=driver.getCurrentUrl();
+		String title=driver.getTitle();
+		String pageSource=driver.getPageSource();
+		Object obj=driver.getClass();
+		System.out.println(obj);
+		//open New Window
+		driver.switchTo().newWindow(WindowType.TAB);
+		 //navigateMethods And Rt
+		driver.navigate().to("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		driver.navigate().back();
+		driver.navigate().forward();
+		driver.navigate().refresh();
+		
+//window Handles
+		  //geting Current Window value
+		String winVal=driver.getWindowHandle();
+		System.out.println(winVal);
+		//getting all windows VALUES ThatAre Open In WebDriver
+		 Set<String> winVals=driver.getWindowHandles();
+		 for(String s:winVals) {
+			 System.out.println(s);
+		 }
+		 //switch one Window to another Window
+		 List<String> wins=new ArrayList<>(winVals);
+		 driver.switchTo().window(wins.get(0));  
+		 
+//Alerts
+		 //simpleAlert
+		 driver.switchTo().newWindow(WindowType.TAB);
+		 driver.get("https://testautomationpractice.blogspot.com/");
+		 driver.findElement(By.id("alertBtn")).click();
+		 Alert a=driver.switchTo().alert();
+		 //get Text fROM ALERT bOX
+		  String text=a.getText();
+		  System.out.println("alert Trext::"+text);
+		  //click on Ok Button
+		  a.accept();
+		  
+		  //Conformation Alert
+		  driver.findElement(By.id("confirmBtn")).click();
+		  Alert a1=driver.switchTo().alert();
+		  String conText=a1.getText();
+		  System.out.println("ConformationText"+conText);
+		  //click on Cancle Button
+		  a1.dismiss();
+		  
+		  //PromptAlert
+		  driver.findElement(By.id("promptBtn")).click();
+		  Alert a2=driver.switchTo().alert();
+		  String promtText=a2.getText();
+		  System.out.println("PromptrtEXT::"+promtText);
+		  a2.sendKeys("vasuAnjana");
+		  a2.accept();
+		  
+//ElemenInteraction Methods
+		  Set<String> w=driver.getWindowHandles();
+		  List<String>l=new ArrayList(w);
+		    driver.switchTo().window(l.get(0));
+		//findElement mETHOD
+		    WebElement un=driver.findElement(By.name("username"));
+		    WebElement pas=driver.findElement(By.name("password"));
+		    WebElement log=driver.findElement(By.xpath("//button[@type='submit']"));
+		    
+		  //getAttribute
+		       String attVal=un.getAttribute("class");
+		        System.out.println("AttVal::"+attVal);
+		        
+		    //get CssValue
+		        String cssValue=log.getCssValue("color");
+		        System.out.println("color::"+cssValue);
+		    //get TagName
+		        String tagName=log.getTagName();
+		        System.out.println("tagName::"+tagName);
+		    //isEnable
+		      boolean unEn=un.isEnabled();
+		      boolean psEn=pas.isEnabled();
+		    //is DisPlayed
+		      boolean logDis=log.isDisplayed();
+		   if(unEn==true)
+		      un.sendKeys("Admin");
+		   if(psEn==true)
+		      pas.sendKeys("admin123");
+		   if(logDis==true)
+		       log.submit();
+		   
+		 //findElements
+		    List<WebElement> li=driver.findElements(By.tagName("a"));
+		    int count=li.size();
+		    if(count==15)
+		    	System.out.println("thre are 15 links in that page");
+		    else
+		    	System.out.println("thre are"+count+" links in that page");
+		    
+		    
+		//checkBox and RADIO BUTTON
+		  driver.switchTo().window(l.get(2));
+		   //radioButton
+		  WebElement radBtn=driver.findElement(By.id("male"));
+		  boolean rb=radBtn.isSelected();
+		  if(rb!=true) {
+			  radBtn.click();
+			  System.out.println("radio Button Selected");
+		  }
+		  
+		  //checkBox &MultipleCheckBox
+		  WebElement chBox;
+		  boolean cb;
+		  chBox=driver.findElement(By.id("sunday"));
+		   cb=chBox.isSelected();
+		  if(cb!=true) {
+		      chBox.click();
+		      System.out.println("checkBox One is Selected");
+		  }
+		  chBox=driver.findElement(By.id("saturday"));
+		  cb=chBox.isSelected();
+		   if(cb!=true) {
+		        chBox.click();
+		        System.out.println("individuval Multiple checkBox Selected");
+		   }
+		   //select Multiple CheckBox if There is Not Selected
+		   List<WebElement> mChBox=driver.findElements(By.xpath("//input[@class='form-check-input' and @type='checkbox']"));
+		   for(int i=0;i<mChBox.size();i++) {
+			   if(mChBox.get(i).isSelected()) {
+				   System.out.println("ALREADY selected");
+			   }
+			   else {
+				   mChBox.get(i).click();
+				   System.out.println(mChBox.get(i).getText()+" is Selected Now");
+			   }  
+		   }
+		  
+		  
+	}
+
+}

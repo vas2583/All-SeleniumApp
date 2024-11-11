@@ -1,0 +1,43 @@
+package com.hrms.TestScripts;
+
+import org.testng.Reporter;
+import org.testng.annotations.Test;
+
+import com.hrms.lib.General;
+
+public class TCOO2_AddEmployee {
+
+	  @Test
+	public void addEmp()throws Exception {
+		General gen=new General();
+		gen.openApplication();
+		Reporter.log("Application is open::");
+		gen.waitStatement();
+		
+		gen.LoginApp();
+		Reporter.log("Login is sucessFull::");
+		gen.waitStatement();
+		
+		gen.enetreEmpDetailsFrame();
+		Reporter.log("enter the frame::");
+		gen.waitStatement();
+		
+		gen.addEmployee();
+		Reporter.log("Add Employee::");
+		gen.waitStatement();
+		
+		gen.exitEmpDetailsFrame();
+		Reporter.log("Exit from Frame::");
+		gen.waitStatement();
+		
+		gen.LogoutApp();
+		Reporter.log("Logout is app::");
+		gen.waitStatement();
+		
+		gen.closeApp();
+		Reporter.log("Close the Application::");
+		
+		
+	}
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;FindByAnnotation.java&apos; to &apos;SeleniumMethods/src/com.nit.findby&apos;&#x0D;&#x0A;- Original project: &apos;SeleniumMethods&apos;&#x0D;&#x0A;- Destination element: &apos;SeleniumMethods/src/com.nit.findby&apos;&#x0D;&#x0A;- Original element: &apos;FindByAnnotation.java&apos;" description="Copy compilation unit" destination="/src&lt;com.nit.findby" element1="/src&lt;{FindByAnnotation.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1730180628527" units="1" version="1.0"/>
+</session>

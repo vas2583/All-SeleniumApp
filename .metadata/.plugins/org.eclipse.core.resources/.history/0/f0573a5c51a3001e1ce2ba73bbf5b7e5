@@ -1,0 +1,42 @@
+package com.hrms.TestScripts;
+
+import java.io.File;
+
+import org.openqa.selenium.OutputType;
+import org.testng.Reporter;
+
+import com.hrms.lib.General;
+import com.hrms.lib.Global;
+public class TC003_EditEmployee {
+
+	public static void main(String[] args) throws Exception {
+		General gen=new General();
+	
+		gen.openApplication();
+		gen.waitStatement();
+		
+		gen.LoginApp();
+		gen.waitStatement();
+		
+		gen.enetreEmpDetailsFrame();
+		gen.waitStatement();
+		
+		gen.addEmployee();
+		gen.waitStatement();
+		
+		//gen.editEmployee();
+		gen.wait();
+		
+		gen.exitEmpDetailsFrame();
+		Reporter.log("Exit from Frame::");
+		gen.waitStatement();
+		
+		gen.LogoutApp();
+		Reporter.log("Logout is app::");
+		gen.waitStatement();
+		
+		gen.closeApp();
+		Reporter.log("Close the Application::");
+	
+
+}

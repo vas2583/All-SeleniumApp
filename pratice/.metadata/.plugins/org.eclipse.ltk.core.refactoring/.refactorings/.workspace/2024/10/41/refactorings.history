@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;CucumbarProjWithSenarioOutLine&apos; to &apos;CucumbarProjInputParameter&apos;" description="Rename resource &apos;CucumbarProjWithSenarioOutLine&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/CucumbarProjWithSenarioOutLine" name="CucumbarProjInputParameter" stamp="1728303963239" updateReferences="true"/>
+</session>
